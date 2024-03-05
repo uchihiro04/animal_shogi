@@ -1,31 +1,20 @@
 # frozen_string_literal: true
 
-# rubocop:disable Style/Documentation
 class Board
-  def initialize(vertical_line, row)
-    @vertical_line = vertical_line
-    @row = row
+  ROW = 4
+  COLUMN = 3
+
+  def initialize
+    @grid = Array.new(ROW) { Array.new(COLUMN) }
   end
 
   def display
-    column_name = %w[A B C]
-    board_elements = Array.new(@vertical_line) { Array.new(@row) { '|' } }
-    puts '後手:'
-
-    board_elements.each.with_index(1) do |row_element, index|
-      row_element.each.with_index(1) do |element, i|
-        case i
-        when 1
-          index == 1 ? print("  #{element} ") : print("#{index - 1} #{element} ")
-        when 4
-          index == 1 ? puts("#{column_name[i - 2]} #{element} ") : puts("  #{element} ")
-        else
-          print "#{index == 1 ? "#{column_name[i - 2]} " : '  '}#{element} "
-        end
-      end
+    puts '  | A | B | C |'
+    @grid.each.with_index(1) do |row, index|
+      board_str = "#{index} |"
+      row_str = row.map { |piece| piece.nil? ? '   ' : " #{piece} " }.join('|')
+      print board_str + row_str
+      puts '|'
     end
-
-    puts '先手:'
   end
 end
-# rubocop:enable Style/Documentation
