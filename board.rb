@@ -1,8 +1,11 @@
 # frozen_string_literal: true
 
 class Board
+  ROW = 4
+  COLUMN = 3
+
   def initialize
-    @grid = Array.new(4) { Array.new(3) }
+    @grid = Array.new(ROW) { Array.new(COLUMN) }
   end
 
   def display
