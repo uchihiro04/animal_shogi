@@ -1,13 +1,12 @@
 # frozen_string_literal: true
 
-# # rubocop:disable Style/Documentation
 class Board
   def initialize
     @grid = Array.new(4) { Array.new(3) }
   end
 
   def display
-    puts "  | A | B | C |"
+    puts '  | A | B | C |'
     @grid.each.with_index(1) do |row, index|
       board_str = "#{index} |"
       row_str = row.map { |piece| piece.nil? ? '   ' : " #{piece} " }.join('|')
@@ -16,4 +15,3 @@ class Board
     end
   end
 end
-# rubocop:enable Style/Documentation
