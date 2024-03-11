@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require_relative 'lion'
 
 class Board
   ROW = 4
@@ -6,6 +7,7 @@ class Board
 
   def initialize
     @grid = Array.new(ROW) { Array.new(COLUMN) }
+    put_in_initial_position
   end
 
   def display
@@ -16,5 +18,14 @@ class Board
       print board_str + row_str
       puts '|'
     end
+  end
+
+  def put_in_initial_position
+    place_piece(Lion.new("first").type, 3, 1)
+    place_piece(Lion.new("second").type, 0, 1)
+  end
+
+  def place_piece(piece, row, column)
+    @grid[row][column] = piece
   end
 end
