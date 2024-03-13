@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 require_relative 'lion'
+require_relative 'giraffe'
 
 class Board
   ROW = 4
@@ -23,6 +24,8 @@ class Board
   def put_in_initial_position
     place_piece(Lion.new("first").type, 3, 1)
     place_piece(Lion.new("second").type, 0, 1)
+    place_piece(Giraffe.new("first").type, 3, 0)
+    place_piece(Giraffe.new("second").type, 0, 2)
   end
 
   def place_piece(piece, row, column)
