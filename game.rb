@@ -8,6 +8,5 @@ class Game
     @second_player = second_player
   end
 
-  def play
-  end
+  def play; end
 end
